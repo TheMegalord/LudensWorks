@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>LudensWorks - Portal de Juegos</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background-color: #0d1117;
+  color: #e6edf3;
+  margin: 0;
+  padding: 0;
+}
+header {
+  background-color: #161b22;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 25px;
+}
+header h1 {
+  font-size: 24px;
+  color: #58a6ff;
+  display: flex;
+  align-items: center;
+}
+header h1 img {
+  width: 35px;
+  margin-right: 10px;
+}
+nav {
+  display: flex;
+  gap: 15px;
+}
+nav a {
+  color: #c9d1d9;
+  text-decoration: none;
+  font-weight: bold;
+}
+nav a:hover {
+  color: #58a6ff;
+}
+main {
+  padding: 20px;
+}
+.game-card {
+  background: #21262d;
+  border-radius: 10px;
+  padding: 15px;
+  margin: 10px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+button {
+  background-color: #238636;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+button:hover {
+  background-color: #2ea043;
+}
+#settings {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  background-color: #21262d;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-size: 24px;
+}
+#settings-panel {
+  position: fixed;
+  right: 20px;
+  bottom: 80px;
+  background-color: #161b22;
+  border-radius: 10px;
+  padding: 20px;
+  display: none;
+  width: 250px;
+}
+#settings-panel h2 {
+  margin-top: 0;
+  color: #58a6ff;
+}
+footer {
+  background-color: #161b22;
+  text-align: center;
+  padding: 15px;
+  color: #8b949e;
+}
+</style>
+</head>
+<body>
+<header>
+  <h1><img src="assets/logo.png" alt="logo">LudensWorks</h1>
+  <nav>
+    <a href="#">Inicio</a>
+    <a href="#">Juegos</a>
+    <a href="#">Ofertas</a>
+  </nav>
+</header>
+
+<main>
+  <h2>Catálogo de Juegos</h2>
+  <div class="game-card"><span>🎮 Final Sentence</span> <span>S/ 9.99</span></div>
+  <div class="game-card"><span>🔥 Minecraft</span> <span>S/ 79.99</span></div>
+  <div class="game-card"><span>⚔️ The Legend of Zelda</span> <span>S/ 99.99</span></div>
+  <div class="game-card"><span>🚗 Rocket League</span> <span>S/ 39.99</span></div>
+  <div class="game-card"><span>🕹️ Hollow Knight</span> <span>S/ 49.99</span></div>
+  <div class="game-card"><span>💥 Cuphead</span> <span>S/ 59.99</span></div>
+</main>
+
+<div id="settings">⚙️</div>
+
+<div id="settings-panel">
+  <h2>Ajustes</h2>
+  <p><b>Cuenta:</b> Usuario123</p>
+  <button id="vip-btn">Activar VIP</button>
+  <p id="vip-msg" style="display:none; color:#2ea043;">Descuento activado ✅</p>
+  <h3>Créditos</h3>
+  <p>Yamil Calsin<br>Roberto Pariona<br>ChatGPT</p>
+</div>
+
+<footer>© 2025 LudensWorks - Todos los derechos reservados.</footer>
+
+<script>
+const gear = document.getElementById("settings");
+const panel = document.getElementById("settings-panel");
+const vipBtn = document.getElementById("vip-btn");
+const vipMsg = document.getElementById("vip-msg");
+let vipActive = false;
+
+gear.addEventListener("click", () => {
+  panel.style.display = panel.style.display === "none" ? "block" : "none";
+});
+
+vipBtn.addEventListener("click", () => {
+  vipActive = !vipActive;
+  if (vipActive) {
+    vipMsg.style.display = "block";
+    vipBtn.textContent = "VIP Activado";
+  } else {
+    vipMsg.style.display = "none";
+    vipBtn.textContent = "Activar VIP";
+  }
+});
+</script>
+</body>
+</html>
